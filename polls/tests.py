@@ -52,7 +52,7 @@ class QuestionIndexViewTests(TestCase):
         """
         response = self.client.get(reverse('polls:index'))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "No polls are available.")
+        self.assertContains(response, "No polls are available. 할당된 설문이 없습니다. /admin에서 설문을 생성하세요.")
         self.assertQuerysetEqual(response.context['latest_question_list'], [])
 
     def test_past_question(self):
